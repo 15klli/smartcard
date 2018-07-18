@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap="" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">欢迎您
+    {{userInfo.nickName}}</text>
+  </view>
+  <view class="enter">
+    <button type="primary" class="in" bindtap="enterIn">立即进入</button>
+    <button type="default" size="default"class="register" bindtap="register">立即注册</button>
+  </view>
+</view>

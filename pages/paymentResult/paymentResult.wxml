@@ -1,0 +1,16 @@
+<!--paymentResult.wxml-->
+<import src="/templates/templates.wxml"/>
+
+<scroll-view class="container">
+  <view class="doc-title">消费记录</view>
+  <view class="zan-panel">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>消费时间</p>
+      </div>
+      <div class="weui-cell__ft2">消费地点</div>
+      <div class="weui-cell__ft2">金额</div>
+    </div>
+  </view>
+  <template is='multi-cells' data="{{...items}}"></template>
+</scroll-view>
