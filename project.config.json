@@ -21,17 +21,41 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"game": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "log",
+					"pathName": "pages/index/log",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "main",
+					"pathName": "pages/main/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pickCardLog",
+					"pathName": "pages/pickCardLog/pickCardLog"
+				}
+			]
 		}
 	}
 }

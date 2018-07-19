@@ -2,8 +2,12 @@
 var secret ='f7609e65b985b6310e5f0c9dd7f289bc'
 var appid ='wx78e80bffd8b46982'
 App({
-  data:{
-    openid:'',
+  data:{   
+  },
+  globalData: {
+    userInfo: null,
+    openid: '',
+    baseUrl: 'https://klli852.top/wx',
   },
   onLaunch: function() {
     //调用API从本地缓存中获取数据
@@ -11,48 +15,62 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     var that = this
-    //调用微信登录接口
-    wx.login({
-      
-      success: function (loginCode) {        
+    
+    // wx.login({
+    //   success: function (res) {
+    //     wx.request({
+    //       url: 'https://klli852.top/wx/login',
+    //       method: 'GET',
+    //       data: { code: res.code },
+    //       success: function (res) {
+    //         // var that=this;
+    //         console.log(res);
+    //         // that.setData({ openid: res.data['openid'] });
+    //         that.globalData.openid = res.data['openid'];
+    //         console.log("res:" + that.globalData.openid)
+    //         // console.log("res:" + res.data['openid'])
+    //         // 跳转至注册页面
+    //         if (res.data['isRegisted'] == false) {
+    //           wx.showModal({
+    //             title: '注册',
+    //             content: '您尚未注册，需要进行注册',
+    //             success: function (res) {
+    //               if (res.confirm) {
+    //                 wx.navigateTo({
+    //                   url: '/pages/register/register',
+    //                 })
+    //               } else if (res.cancel) {
+    //                 console.log('用户点击取消');
+    //                 wx.redirectTo({
+    //                   url: '/pages/main/main',
+    //                 })
+    //               }
+    //             }
+    //           })
 
-        //调用request请求api转换登录凭证
-        // wx.request({
-        //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=‘+<code></code>appid+’&secret=‘+secret+’&grant_type=authorization_code&js_code=' + loginCode.code,
-        //   header: {
-        //     'content-type': 'application/json'
-        //   },
-        //   success: function (res) {
-        //     console.log(res.data.openid) //获取openid
-        //     that.data.openid=res.data.openid
-        //   }
-        // })
-        wx.request({
-          url: 'https://www.klli852.top/wx',
-          method:'GET',
-          data:loginCode.code
-        })
-      }
-    })
+    //         }
+    //         else wx.redirectTo({
+    //           url: '/pages/main/main',
+    //         })
+    //       },
+    //       fail: function () {
+    //         console.log("Failed");
+    //       },
+    //       complete: function () {
+    //         console.log('code:' + res.code)
+    //       }
+    //     })
+    //   },
+    //   fail: function (res) {
+    //     console.log(res.errMsg);
+    //   },
+    //   complete: function () {
+        
+    //   }
+    // })
+   
   },
+  
 
-  getUserInfo: function(cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: false,
-        success: function(res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
-      })
-    }
-  },
-
-  globalData: {
-    userInfo: null
-  }
+ 
 })

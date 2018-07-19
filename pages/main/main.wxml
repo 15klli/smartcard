@@ -1,7 +1,8 @@
 <!--main.wxml-->
 <view class="container">
   <view bindtap="" class="add userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> -->
+    <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
     <view class="title">校园一卡通助手</view>
   </view>
   <view class="btns zan-btns">

@@ -19,28 +19,24 @@
           <text class="zan-form__title">学号</text>
           <input name="stuNum" value="{{lostCardInfo.stuNum}}" class="zan-form__input zan-cell__bd" type="number" placeholder="卡主学号" />
         </view>
-        <view class="zan-cell zan-form__item zan-cell--last-child">
-          <text class="zan-form__title">学院</text>
-          <view class="zan-form__input zan-cell__bd">
-            <picker mode="selector" range="{{ collegePicker.college }}" value="{{ collegePicker.iniVal }}" bindchange="onAreaChange">
-              <view class="picker">
-                {{ collegePicker.college[collegeChoice] }}
-              </view>
-            </picker>
-          </view>
-        </view>
+        <view class="zan-cell zan-form__item">
+      <picker mode="date" start="{{startDay}}" end="{{endDay}}" bindchange="startDateChange">
+        拾卡日期：{{pickDate}}
+      </picker>
+    </view>
       </view>
     </view>
     <view class="zan-panel-title">联系我</view>
     <view class="zan-panel">
        <view class="zan-cell zan-form__item">
          <radio-group class="radio-group" bindchange="radioChange">
+           <label>
+            <radio value="1" checked="true" />联系我  
+          </label>
           <label class="radio">
-            <radio value="0" checked="true" />指定位置         
+            <radio value="0" checked="" />放卡位置         
           </label>
-          <label>
-            <radio value="1" checked="" />联系我  
-          </label>
+         
         </radio-group>         
       </view> 
       <view class="public" wx:if="{{way==0}}">

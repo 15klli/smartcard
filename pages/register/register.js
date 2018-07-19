@@ -1,21 +1,25 @@
 // pages/register/register.js
 var Zan = require('../../css/index')
-
-Page(Object.assign( {},Zan.TopTips,{
+var app = getApp()
+Page(
+  Object.assign( {},Zan.TopTips,{
   /**
    * 页面的初始数据
    */
   data: {
-  name:'',
-  stuNum:'',
-  email:'',
-  cardNum:'',
-  cardPass:'',
+    name:'',
+    stuNum:'',
+    email:'',
+    cardNum:'',
+    cardPaw:'',
+    
   },
-
+  
+  
   /*填写完毕 */
   submit: function(e){
     // console.log("in")
+    var info={}
     let value = e.detail.value;
     let checkCode=value.checkNum.length;
     if(checkCode==0){
@@ -77,7 +81,48 @@ Page(Object.assign( {},Zan.TopTips,{
       return;
     }
     this.data.name = value.name;
-    this.data.cerdPass = value.cerdPass;
-    console.log("success");
+    this.data.cardPaw = value.cardPass;
+    // console.log("success");
+    info={
+      'name':value.name,
+      'stuNum':value.stuNum,
+      'email': value.email,
+      'cardNum': value.cardNum,
+      'cardPaw': value.cardPass,
+      'openid': app.globalData.openid,
+    } 
+    console.log("app:"+app.globalData.openid)
+    wx.request({
+      url: app.globalData.baseUrl+'/regist',
+      data:info,
+      method:'POST',
+      success:function(res){
+        if(res.data['isSuccess']==true){
+          wx.showToast({
+            title: '注册成功',
+            icon: 'success',
+            success: function () {
+              wx.redirectTo({
+                url: '/pages/main/main',
+              })
+            }
+          })
+        }
+        else{
+          wx.showToast({
+            title: 'Error！服务器出现错误，请稍候注册',
+            icon: 'fail',
+          })
+        }
+        
+      },
+      fail:function(){
+        wx.showToast({
+          title: 'Error！服务器出现错误，请稍候注册',
+          icon: 'fail',
+        })
+        
+      }
+    })
   }
 }))

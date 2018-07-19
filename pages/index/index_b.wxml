@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container" style='padding:10px'>
+  <view bindtap="" class="userinfo">
+    <!-- <open-data class="userinfo-avatar" background-size="cover" type="userAvatarUrl"></open-data> -->
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <open-data class="userinfo-nickname" type="userNickName"></open-data>
+    <text class="userinfo-nickname">欢迎您
+    </text>
+  </view>
+  <view class="enter">
+    <button type="primary" class="in" bindtap="enterIn">立即进入</button>
+    <button type="default" size="default" class="register" bindtap="register">立即注册</button>
+    <button open-type="getUserInfo"></button>
+  </view>
+  <!-- <button open-type="getUserInfo"></button> -->
+</view>
