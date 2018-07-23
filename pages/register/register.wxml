@@ -34,21 +34,6 @@
         placeholder="请输入一卡通号"
       />
     </view>
-    <view class="zan-cell zan-form__item">
-      <text class="zan-form__title">一卡通密码</text>
-      <input name="cardPass" type="password" 
-        class="zan-form__input zan-cell__bd"
-        placeholder="请输入一卡通密码"
-      />
-    </view>
-    <view class="zan-cell zan-form__item">
-      <text class="zan-form__title">验证码</text>
-      <input name="checkNum" value="{{checkNum}}"
-        class="zan-form__input zan-cell__bd" type="number"
-        placeholder="请输入验证码" 
-      />
-      <!-- <image src="src"></image> -->
-    </view>
   </scroll-view>
   <button form-type="submit" class="zan-btn zan-btn--sprimary" >注册</button>  
   </form>

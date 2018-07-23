@@ -15,7 +15,7 @@ Page({
       },
       {
         name: '挂失',
-        url: '',
+        url: '../reportLost/reportLost',
         icon: blackBtn
       },
       {

@@ -7,14 +7,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:''
+    userInfo:'',
+    cardStatus:'我丢卡了',
+    btnClass:'zan-btn zan-btn--warn',
+    isDisable: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var that= this;  
+    var that= this;    
+    var sendData={
+      openid:app.globalData.openid
+    } ;
+    wx.request({
+      url: app.globalData.baseUrl + '/lostCardLog',
+      data: sendData,
+      success: function (res) {
+        var rs = res.data['isExist'];
+        var status = that.data.cardStatus;
+        let btn=that.data.btnClass;
+        let isDisable = that.data.isDisable;
+        if (rs == 1) {
+          that.setData({cardStatus:'已进行失卡登记'});                  
+          that.setData({ btnClass:'zan-btn zan-btn--disabled'});
+          that.setData({isDisable:'true'}) ;
+          app.globalData.lostReported=true;
+        }        
+      }
+    }) 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -26,8 +48,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function () {  
+    var i=1;  
+    var that=this;
+    if (app.globalData.lostReported == true){
+      that.setData({ cardStatus: '已进行失卡登记' });
+      that.setData({ btnClass: 'zan-btn zan-btn--disabled' });
+      that.setData({ isDisable: 'true' });      
+    }
   },
 
   /**

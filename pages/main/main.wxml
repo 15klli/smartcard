@@ -7,7 +7,7 @@
   </view>
   <view class="btns zan-btns">
     <button class="zan-btn zan-btn--primary" bindtap="toPickCardLog">我捡卡了</button>
-    <button class="zan-btn zan-btn--warn" bindtap="toLostCardLog">我丢卡了</button>
+    <button class="{{btnClass}}" bindtap="toLostCardLog" disabled="{{isDisable}}">{{cardStatus}}</button>
     <button class="zan-btn zan-btn--danger" bindtap="toPersonality">个人中心</button>
   </view>
 </view>

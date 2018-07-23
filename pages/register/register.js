@@ -1,4 +1,5 @@
 // pages/register/register.js
+
 var Zan = require('../../css/index')
 var app = getApp()
 Page(
@@ -21,14 +22,14 @@ Page(
     // console.log("in")
     var info={}
     let value = e.detail.value;
-    let checkCode=value.checkNum.length;
-    if(checkCode==0){
-      wx.showToast({
-        title: '请输入验证码',
-        image: '/images/ing.png'
-      });
-      return;
-    }
+    // let checkCode=value.checkNum.length;
+    // if(checkCode==0){
+    //   wx.showToast({
+    //     title: '请输入验证码',
+    //     image: '/images/ing.png'
+    //   });
+    //   return;
+    // }
     let checkStuN = /^[0-9]{5,10}$/;
     let checkCardN = /^0[0-9]{5}$/;
     let checkEmail = /^[0-9]{2}[a-z]*[0-9]?$/;
@@ -81,14 +82,13 @@ Page(
       return;
     }
     this.data.name = value.name;
-    this.data.cardPaw = value.cardPass;
+    // this.data.cardPaw = value.cardPass;
     // console.log("success");
     info={
       'name':value.name,
       'stuNum':value.stuNum,
       'email': value.email,
-      'cardNum': value.cardNum,
-      'cardPaw': value.cardPass,
+      'cardNum': value.cardNum,      
       'openid': app.globalData.openid,
     } 
     console.log("app:"+app.globalData.openid)

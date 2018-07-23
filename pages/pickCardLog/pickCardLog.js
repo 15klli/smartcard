@@ -52,6 +52,7 @@ Page(Object.assign({}, Zan.TopTips, {
 
 
   radioChange: function(e) {
+    
     this.setData({
       way: e.detail.value
     });

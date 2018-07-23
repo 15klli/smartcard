@@ -8,7 +8,9 @@
     "pages/lostCardLog/lostCardLog",
     "pages/personal/personal",
     "pages/paymentRecord/paymentRecord",
-    "pages/paymentResult/paymentResult"
+    "pages/paymentResult/paymentResult",
+    "pages/reportLost/reportLost",
+    "pages/loginSys/loginSys"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -28,10 +28,10 @@ Page({
             data: { code: res.code },
             success: function (res) {
               // var that=this;
-              console.log(res);
+              
               that.setData({ openid: res.data['openid'] });
               app.globalData.openid = res.data['openid'];
-              console.log("res:" + app.globalData.openid)
+              // console.log("res:" + app.globalData.openid)
               // console.log("res:" + res.data['openid'])
               // 跳转至注册页面
               if (res.data['isRegisted'] == false) {
@@ -40,7 +40,7 @@ Page({
                   content: '您尚未注册，需要进行注册',
                   success: function (res) {
                     if (res.confirm) {
-                      wx.navigateTo({
+                      wx.redirectTo({
                         url: '/pages/register/register',
                       })
                     } else if (res.cancel) {

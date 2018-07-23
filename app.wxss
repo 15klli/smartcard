@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import 'weui.wxss';
+
 .container {
   background: #F9F9F9;
   overflow: hidden;
