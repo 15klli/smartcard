@@ -1,5 +1,5 @@
 <!--paymentRecord.wxml-->
-<view class="container">
+<view wx:if="{{show}}" class="container">
   <view class="doc-title">消费记录</view>
   <view class="zan-panel-title">查询范围</view>
   <view class="zan-form">

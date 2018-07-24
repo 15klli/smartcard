@@ -10,8 +10,9 @@ Page({
     routers: [
       {
         name: '消费记录',
-        url: '../paymentRecord/paymentRecord',
-        icon: blueBtn
+        url: '../paymentRecord/paymentRecord',        
+        icon: blueBtn,
+        // onclick:     
       },
       {
         name: '挂失',

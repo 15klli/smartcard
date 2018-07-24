@@ -1,23 +1,49 @@
 // paymentResult.js
+
+var app=getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-    items:{
-      date:'2017-7-24',
-      time:'06:10',
-      place:'2饭食堂',
-      money:'20.00'
-    }
+  data: {   
+    // data for test
+    // dateArray:['1','2'],
+    // recordsArray: [[{ 'time': '-4', 'place': '-5', 'money': '-4' }, { 'time': '-4', 'place': '-5', 'money': '-4' }],['-4']],  
+    dataArray:[],
+    recordArray:[]
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var begin=options.begin;
+    var end=options.end;
+    var sendData={
+      'begin':begin,
+      'end':end,
+      'openid':app.globalData.openid,
+    };
+    var that=this;
+    // console.log(sendData)
+    wx.showLoading({
+      title: '获取中...',
+    });
+    wx.request({
+      url: app.globalData.baseUrl+'/getRecord',
+      data:sendData,
+      dataType:'json',
+      method:'POST',
+      success:function(res){
+        console.log(res.data)
+        that.setData({ dateArray: res.data['date'] })
+        that.setData({recordsArray:res.data['records']});
+      }
+    });
+    setTimeout(function () { wx.hideLoading()} , 2000)
   },
 
   /**

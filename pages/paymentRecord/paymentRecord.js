@@ -3,9 +3,15 @@ var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth() + 1;
 var day = date.getDate();
-
+if(month<10){
+  month='0'+month;
+}
+if(day<10){
+  day='0'+day
+}
 var now = year + '-' + month + '-' + day;
 var start = year + '-' + (month - 1) + '-' + day;
+var app=getApp();
 
 Page({
 
@@ -17,13 +23,27 @@ Page({
     endDay: now,
     begin: now,
     end: now,
+    show:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(now)
+    // console.log(now)
+    if(app.globalData.isLoginSys==true){
+      this.setData({show:true});      
+    }
+    else{
+      wx.showToast({
+        title: '请先登录系统',
+        icon:'none'                
+      });
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '/pages/loginSys/loginSys?showLogin=login',
+        })},1500)
+    }
   },
 
   /**
@@ -36,8 +56,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function () {    
+    this.setData({ show: app.globalData.isLoginSys });    
   },
 
   /**
@@ -58,8 +78,15 @@ Page({
   },
 
   submit:function(){
-    wx.redirectTo({
-      url: '../paymentResult/paymentResult',
+    // console.log(this.data.begin+'\t'+this.data.end)
+    var that=this;
+    // sendData={
+    //   'begin':begin,
+    //   'end':end,
+    // }
+
+    wx.redirectTo({      
+      url: '../paymentResult/paymentResult?begin='+that.data.begin+'&end='+that.data.end,    
     })
   }
 })

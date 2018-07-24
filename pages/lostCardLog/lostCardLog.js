@@ -60,27 +60,6 @@ Page({
     wx.redirectTo({
       url: '../reportLost/reportLost',
     })
-    // wx.showModal({
-    //   title: '确定挂失？',
-    //   content: '挂失后可携身份证、学生证等证件于工作时间至网络与信息中心取消挂失',
-    //   showCancel: true,
-    //   success:function(res){
-    //    if(res.confirm){
-    //      wx.showModal({
-    //        title: '挂失成功',
-    //        content: '',
-    //        showCancel: false,
-    //        success: function (res) {
-    //          if (res.confirm) {
-    //            wx.navigateBack({
-    //              delta:1
-    //            })
-    //          }
-    //        }
-    //      })
-    //    }
-    //   }
-      
-    // })
+   
   }
 })

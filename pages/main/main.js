@@ -26,6 +26,7 @@ Page({
       data: sendData,
       success: function (res) {
         var rs = res.data['isExist'];
+      console.log('rs'+rs);
         var status = that.data.cardStatus;
         let btn=that.data.btnClass;
         let isDisable = that.data.isDisable;

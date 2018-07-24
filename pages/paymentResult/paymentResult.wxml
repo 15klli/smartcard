@@ -1,5 +1,5 @@
 <!--paymentResult.wxml-->
-<import src="/templates/templates.wxml"/>
+<import src="/templates/templates.wxml" />
 
 <scroll-view class="container">
   <view class="doc-title">消费记录</view>
@@ -8,9 +8,24 @@
       <div class="weui-cell__bd">
         <p>消费时间</p>
       </div>
-      <div class="weui-cell__ft2">消费地点</div>
-      <div class="weui-cell__ft2">金额</div>
+      <div class="weui-cell__ft2" style="color:black">消费地点</div>
+      <div class="weui-cell__ft2" style="color:black">金额</div>
     </div>
   </view>
-  <template is='multi-cells' data="{{...items}}"></template>
+  <!-- <template is='multi-cells' data="{{...items}}"></template>
+  <template is='multi-cells' data="{{...items2}}"></template> -->
+  <view wx:for="{{dateArray}}" wx:for-item='date' wx:for-index="dateIndex" wx:key=''>
+    <view class="zan-panel-title">{{date}}</view>    
+      <view wx:for="{{recordsArray}}" wx:for-item="records" wx:for-index="recordsIndex" wx:if="{{dateIndex==recordsIndex}}" wx:key='' class="zan-panel">
+      <view wx:for="{{recordsArray[recordsIndex]}}" wx:for-item='record' wx:key="place">        
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <p>{{record['time']}}</p>
+          </div>
+          <div class="weui-cell__ft2">{{record['place']}}</div>
+          <div class="weui-cell__ft2" style="color:black">{{record['money']}}</div>
+        </div>
+      </view>
+      </view>
+  </view>
 </scroll-view>

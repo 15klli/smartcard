@@ -8,6 +8,8 @@ App({
     openid: '',
     baseUrl: 'https://klli852.top/wx',
     lostReported: false,
+    // isLoginSys: true,
+    isLoginSys:false,
   },
   onLaunch: function() {
     //调用API从本地缓存中获取数据

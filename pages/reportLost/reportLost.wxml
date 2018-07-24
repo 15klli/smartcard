@@ -1,26 +1,14 @@
 <!--pages/reportLost.wxml-->
-<import src="/css/toptips/index.wxml" />
-
-<view class='container'>
-  <view class="doc-title">挂失</view>
-  <form bindsubmit='submit'>
-    <view class="zan-cell zan-form__item">
-      <text wx:if="{{!hasCardPaw}}" class="zan-form__title">一卡通密码</text>
-      <text wx:if="{{hasCardPaw}}" class="zan-form__title">确认密码</text>      
-      <input name="cardPaw" type="password"  class="zan-form__input zan-cell__bd" value="{{cardPaw}}" placeholder="请输入一卡通密码" ></input>
-    </view>
-    <view class="weui-cell weui-cell_vcode zan-cell zan-form__item">
-      <view class="weui-cell__hd">
-        <label class="zan-form__title">验证码</label>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" type="number"  value='{{vcode}}' name='vcode' placeholder="请输入验证码"></input>
-      </view>
-      <view class="weui-cell__ft">
-        <image class="weui-vcode-img"  style="width: 108px" src="{{src}}" ></image>
-      </view>
-    </view>
-    <button form-type="submit" class="zan-btn zan-btn--sprimary" >挂失</button>  
-  </form>
+<view wx:if="{{show}}" class="container">
+  <!-- <view class=""></view> -->
+  <icon type="success" size="60" style="margin:50px 43%" />  
+  <view class="content">
+    <text class="title">挂失成功\n</text>
+    <text class="tips">您已成功进行失卡登记，建议您立即进行挂失\n以防不必要的损失</text>
+  </view>
+  <view class="zan-btns" style="margin:50px 20%">
+    <button  class="zan-btn zan-btn--danger" bindtap="lostConfirm">挂失</button>
+    <button class="zan--btn " bindtap="backToMain">返回主界面</button>
+  </view>
+  
 </view>
-<template is="zan-toptips" data="{{ zanTopTips }}"></template>
