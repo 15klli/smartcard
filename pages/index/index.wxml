@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container" class='add userinfo' style='padding:30%'>
+  <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
+    <open-data type="userNickName"></open-data><text class='userinfo-nickname'>欢迎您</text>
+  <!-- <button open-type="getUserInfo"></button> -->
+</view>

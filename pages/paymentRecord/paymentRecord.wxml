@@ -1,0 +1,20 @@
+<!--paymentRecord.wxml-->
+<view wx:if="{{show}}" class="container">
+  <view class="doc-title">消费记录</view>
+  <view class="zan-panel-title">查询范围</view>
+  <view class="zan-form">
+    <!-- <view class="section__title">开始日期</view> -->
+    <view class="zan-cell zan-form__item">
+      <picker mode="date" start="{{startDay}}" end="{{endDay}}" bindchange="startDateChange">
+        开始日期：{{begin}}
+      </picker>
+    </view>
+    <view class="zan-cell zan-form__item">
+      <picker mode="date" start="{{startDay}}" end="{{endDay}}" bindchange="endDateChange">
+        结束日期：{{end}}
+      </picker>
+    </view>    
+  </view>
+  <view class="zan-panel-title">*只能查询一个月内的消费记录</view>
+  <button class="zan-btn zan-btn--sprimary" style="margin-top:50px" bindtap="submit" >查询</button>
+</view>

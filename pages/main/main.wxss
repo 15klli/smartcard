@@ -1,0 +1,8 @@
+/* main.wxss */
+.title{
+  color: yellowgreen;  
+}
+
+.add,.btns{
+  margin-top: 50px;
+}

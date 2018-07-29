@@ -1,0 +1,69 @@
+<!--pickCardLog.wxml-->
+<import src="/css/toptips/index.wxml" />
+
+<view class="container">
+  <view class="doc-title">拾卡登记</view>
+  <form bindsubmit="submit">
+    <view class="zan-panel-title">请填写所拾卡信息</view>
+    <view class="zan-panel">
+      <view class="zan-form">
+        <view class="zan-cell zan-form__item">
+          <text class="zan-form__title">姓名</text>
+          <input name="cardName" value="{{lostCardInfo.name}}" class="zan-form__input zan-cell__bd" placeholder="卡主姓名" />
+        </view>
+        <view class="zan-cell zan-form__item">
+          <text class="zan-form__title">卡号</text>
+          <input name="cardNum" value="{{lostCardInfo.num}}" class="zan-form__input zan-cell__bd" type="number" placeholder="所拾卡卡号" />
+        </view>
+        <view class="zan-cell zan-form__item">
+          <text class="zan-form__title">学号</text>
+          <input name="stuNum" value="{{lostCardInfo.stuNum}}" class="zan-form__input zan-cell__bd" type="number" placeholder="卡主学号" />
+        </view>
+        <view class="zan-cell zan-form__item">
+      <picker mode="date" start="{{startDay}}" end="{{endDay}}" bindchange="startDateChange">
+        拾卡日期：{{pickDate}}
+      </picker>
+    </view>
+      </view>
+    </view>
+    <view class="zan-panel-title">联系我</view>
+    <view class="zan-panel">
+       <view class="zan-cell zan-form__item">
+         <radio-group class="radio-group" bindchange="radioChange">
+           <label>
+            <radio value="1" checked="true" />联系我  
+          </label>
+          <label class="radio">
+            <radio value="0" checked="" />放卡位置         
+          </label>
+         
+        </radio-group>         
+      </view> 
+      <view class="public" wx:if="{{way==0}}">
+        <view class="zan-cell zan-form__item zan-cell--last-child">
+          <text class="zan-form__title">位置</text>
+          <view class="zan-form__input zan-cell__bd">
+            <picker mode="selector" range="{{ placePicker.place }}" value="{{ placePicker.iniVal }}" bindchange="onPlaceChange">
+              <view class="picker">
+                {{ placePicker.place[placeChoice] }}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="personal" wx:if="{{way!=0}}">
+        <view class="zan-cell zan-form__item">
+          <text class="zan-form__title">昵称</text>
+          <input name="pickerName" value="{{pickerInfo.name}}" class="zan-form__input zan-cell__bd" placeholder="您的昵称" />          
+        </view>
+        <view class="zan-cell zan-form__item">
+          <text class="zan-form__title">手机号码</text>
+          <input name="pickerPhone" value="{{pickerInfo.phone}}" class="zan-form__input zan-cell__bd" placeholder="您的长号或短号" />          
+            <!-- todo auto-focus:focus="{{isPhoneFocus}}" bindfocus="changePhone"  -->
+        </view>
+      </view>
+    </view>
+    <button form-type="submit" class="zan-btn zan-btn--sprimary">提交</button>
+  </form>
+  <template is="zan-toptips" data="{{ zanTopTips }}"></template>
+</view>

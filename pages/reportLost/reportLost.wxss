@@ -1,0 +1,17 @@
+/* pages/reportLost.wxss */
+.content {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  font-family: -apple-system-font, Helvetica Neue, sans-serif;
+}
+
+.tips {
+  font-size: 14px;
+  color: #999;
+}

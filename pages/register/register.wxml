@@ -1,0 +1,41 @@
+<!--pages/register/register.wxml-->
+<import src="/css/toptips/index.wxml" />
+
+<view class="container">
+  <view class="doc-title">注册</view>
+  <form bindsubmit="submit">
+  <scroll-view class="zan-form">
+     <view class="zan-cell zan-form__item">
+      <text class="zan-form__title">姓名</text>
+      <input name="name" 
+        class="zan-form__input zan-cell__bd"
+        placeholder="请输入姓名" 
+      />
+    </view>
+    <view class="zan-cell zan-form__item">
+      <text class="zan-form__title">学号</text>
+      <input name="stuNum" value="{{stuNum}}"
+        class="zan-form__input zan-cell__bd" type="number"
+        placeholder="请输入学号"
+      />
+    </view>
+    <view class="zan-cell zan-form__item">
+      <text class="zan-form__title">邮箱</text>
+      <input name="email" value="{{email}}"
+        class="zan-form__input zan-cell__bd"
+        placeholder="请输入邮箱"
+      />
+      <text class="zan-form__title">@stu.edu.cn</text>
+    </view>
+    <view class="zan-cell zan-form__item">
+      <text class="zan-form__title">一卡通号</text>
+      <input name="cardNum" value="{{cardNum}}"
+        class="zan-form__input zan-cell__bd" type="number"
+        placeholder="请输入一卡通号"
+      />
+    </view>
+  </scroll-view>
+  <button form-type="submit" class="zan-btn zan-btn--sprimary" >注册</button>  
+  </form>
+</view>
+<template is="zan-toptips" data="{{ zanTopTips }}"></template>

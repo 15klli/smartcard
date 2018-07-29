@@ -1,0 +1,79 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wx78e80bffd8b46982",
+	"projectname": "%E6%A0%A1%E5%9B%AD%E4%B8%80%E5%8D%A1%E9%80%9A%E5%8A%A9%E6%89%8B",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 6,
+			"list": [
+				{
+					"id": -1,
+					"name": "log",
+					"pathName": "pages/index/log",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "main",
+					"pathName": "pages/main/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pickCardLog",
+					"pathName": "pages/pickCardLog/pickCardLog",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reportLost",
+					"pathName": "pages/reportLost/reportLost",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "personal",
+					"pathName": "pages/personal/personal",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "paymentRecord",
+					"pathName": "pages/paymentRecord/paymentRecord"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,28 @@
+<!--pages/loginSys.wxml-->
+<import src="/css/toptips/index.wxml" />
+
+<view class='container'>
+  <view wx:if="{{showLogin}}" class="doc-title">登录</view>
+  <view wx:if="{{!showLogin}}" class="doc-title">挂失</view>  
+  <form bindsubmit='submit'>
+    <view class="zan-cell zan-form__item">
+      <text wx:if="{{!hasCardPaw}}" class="zan-form__title">一卡通密码</text>
+      <text wx:if="{{hasCardPaw}}" class="zan-form__title">确认密码</text>      
+      <input name="cardPaw" type="password"  class="zan-form__input zan-cell__bd" value="{{cardPaw}}" placeholder="请输入一卡通密码" ></input>
+    </view>
+    <view class="weui-cell weui-cell_vcode zan-cell zan-form__item">
+      <view class="weui-cell__hd">
+        <label class="zan-form__title">验证码</label>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="number"  value='{{vcode}}' name='vcode' placeholder="请输入验证码"></input>
+      </view>
+      <view class="weui-cell__ft">
+        <image class="weui-vcode-img"  style="width: 108px" src="{{src}}" ></image>
+      </view>
+    </view>
+    <button wx:if="{{showLogin}}" form-type="submit" class="zan-btn zan-btn--sprimary" >登录</button>      
+    <button wx:if="{{!showLogin}}" form-type="submit" class="zan-btn zan-btn--sprimary" >挂失</button>  
+  </form>
+</view>
+<template is="zan-toptips" data="{{ zanTopTips }}"></template>
