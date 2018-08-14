@@ -3,7 +3,7 @@
 
 <view class="container">
   <view class="doc-title">拾卡登记</view>
-  <form bindsubmit="submit">
+  <form bindsubmit="submit" report-submit="true">
     <view class="zan-panel-title">请填写所拾卡信息</view>
     <view class="zan-panel">
       <view class="zan-form">

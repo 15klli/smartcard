@@ -1,16 +1,25 @@
 // paymentRecord.js
 var date = new Date();
 var year = date.getFullYear();
+var foreYear = year;
 var month = date.getMonth() + 1;
-var day = date.getDate();
-if(month<10){
-  month='0'+month;
+var foreMonth = month - 1;
+if (foreMonth == 0) {
+  foreMonth = 12;
+  foreYear = year - 1;
 }
-if(day<10){
-  day='0'+day
+var day = date.getDate();
+if (month < 10) {
+  month = '0' + month;
+}
+if (foreMonth < 10) {
+  foreMonth = '0' + foreMonth;
+}
+if (day < 10) {
+  day = '0' + day
 }
 var now = year + '-' + month + '-' + day;
-var start = year + '-' + (month - 1) + '-' + day;
+var start = foreYear + '-' + foreMonth + '-' + day;
 var app=getApp();
 
 Page({

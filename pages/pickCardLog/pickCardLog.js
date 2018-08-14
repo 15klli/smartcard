@@ -27,8 +27,7 @@ Page(Object.assign({}, Zan.TopTips, {
     },
 
     placePicker: {
-      place: ['请选择', '图书馆', 'AB社区', 'CD社区', 'EF社区', '研究生宿舍区',
-        'G座宿舍', '留学生宿舍', '至诚书院', '弘毅书院', '知行书院', '思源书院'
+      place: ['请选择', '图书馆前台', '修远书院前台', '敬一书院前台', '明德书院前台', '研究生宿舍前台', '德馨书院前台', '至诚书院前台', '弘毅书院前台', '知行书院前台', '思源书院前台'
       ],
       iniVal: 0,
     },
@@ -78,13 +77,16 @@ Page(Object.assign({}, Zan.TopTips, {
     });
   },
   //检测用户输入是否规范
-
+  // submit:function(e){
+  //   let formId=e.detail.formId;
+       
+  // }
   submit: function(e) {
     let value = e.detail.value;
     let checkStuN = /^[0-9]{5,10}$/;
     let checkCardN = /^0[0-9]{5}$/;
     let checkPhoneNum = /^[186][0-9]{4,10}$/
-
+    var formId=e.detail.formId;
     if (value.cardName.length == 0) {
       this.showZanTopTips('请输入卡主姓名');
       return;
@@ -145,6 +147,7 @@ Page(Object.assign({}, Zan.TopTips, {
       cardPlace: this.data.cardPlace,
       way: this.data.way, //作为哪种方式
       pickDate: this.data.pickDate,
+      formId:formId
     }
     var that = this;
     wx.request({
@@ -182,7 +185,8 @@ Page(Object.assign({}, Zan.TopTips, {
                 }
               }
             })
-          }
+          }        
+          // app.hasFit(formId);
         } 
         else if(res.data['isExist']==1) {
           console.log('error');
@@ -215,7 +219,7 @@ Page(Object.assign({}, Zan.TopTips, {
       },
       fail: function() {
 
-      }
+      }      
     })
   }
 }))

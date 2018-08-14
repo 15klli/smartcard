@@ -1,15 +1,29 @@
 <!--lostCardLog.wxml-->
 
 <view class="container">
-  <!-- <view class=""></view> -->
-  <icon type="success" size="60" style="margin:50px 43%" />  
-  <view class="content">
-    <text class="title">登记失卡成功\n</text>
-    <text class="tips">您已成功进行失卡登记，建议您立即进行挂失\n以防不必要的损失</text>
+  <view wx:if="{{showSuccess}}">
+    <icon type="success" size="60" style="margin:50px 43%" />
+    <view class="content">
+      <text class="title">登记失卡成功\n</text>
+      <text class="tips">您已成功进行失卡登记，建议您立即进行挂失\n以防不必要的损失</text>
+    </view>
+    <view class="zan-btns" style="margin:50px 20%">
+      <button class="zan-btn zan-btn--danger" bindtap="lostConfirm">挂失</button>
+      <button class="zan--btn " bindtap="backToMain">返回主界面</button>
+    </view>
   </view>
-  <view class="zan-btns" style="margin:50px 20%">
-    <button  class="zan-btn zan-btn--danger" bindtap="lostConfirm">挂失</button>
-    <button class="zan--btn " bindtap="backToMain">返回主界面</button>
+  <view wx:if="{{!showSuccess}}">
+    <view class="doc-title">失卡登记</view>
+    <form bindsubmit='onSubmit' report-submit='true' class='zan-form'>
+      <view class="zan-cell zan-form__item">
+        <picker mode="date" start="{{startDay}}" end="{{endDay}}" bindchange="startDateChange">
+          丢卡日期：{{begin}}
+        </picker>
+      </view>
+  <view class="zan-panel-title">*大致时间即可</view>
+      
+      <button form-type='submit'   class="zan-btn zan-btn--sprimary" style="margin-top:50px" > 登记</button>
+    </form>
+
   </view>
-  
 </view>
